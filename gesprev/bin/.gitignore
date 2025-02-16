@@ -31,12 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-*.log
-*.tmp
-*.swp
-
-# Arquivos de configuração local
-*.env
-application.properties
-application.yml
