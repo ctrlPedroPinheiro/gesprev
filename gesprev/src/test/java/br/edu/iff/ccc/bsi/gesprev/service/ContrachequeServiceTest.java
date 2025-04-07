@@ -1,7 +1,7 @@
 package br.edu.iff.ccc.bsi.gesprev.service;
 
-import br.edu.iff.ccc.bsi.gesprev.entities.Aposentadoria;
-import br.edu.iff.ccc.bsi.gesprev.repository.AposentadoriaRepository;
+import br.edu.iff.ccc.bsi.gesprev.entities.Contracheque;
+import br.edu.iff.ccc.bsi.gesprev.repository.ContrachequeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,13 +17,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class AposentadoriaServiceTest {
+public class ContrachequeServiceTest {
 
     @InjectMocks
-    private AposentadoriaService aposentadoriaService;
+    private ContrachequeService contrachequeService;
 
     @Mock
-    private AposentadoriaRepository aposentadoriaRepository;
+    private ContrachequeRepository contrachequeRepository;
 
     @BeforeEach
     void setup() {
@@ -31,17 +31,17 @@ public class AposentadoriaServiceTest {
     }
 
     @Test
-    @DisplayName("Busca por ID em AposentadoriaService com sucesso.")
+    @DisplayName("Busca por ID em ContrachequeService com sucesso.")
     void testBuscarPorId() {
-        Aposentadoria aposentadoriaMock = new Aposentadoria();
-        aposentadoriaMock.setId(1L);
+        Contracheque contrachequeMock = new Contracheque();
+        contrachequeMock.setId(1L);
 
-        when(aposentadoriaRepository.findById(1L)).thenReturn(Optional.of(aposentadoriaMock));
+        when(contrachequeRepository.findById(1L)).thenReturn(Optional.of(contrachequeMock));
 
-        Aposentadoria result = aposentadoriaService.buscarOuFalhar(1L);
+        Contracheque result = contrachequeService.buscarOuFalhar(1L);
 
         assertNotNull(result);
         assertEquals(1L, result.getId());
-        verify(aposentadoriaRepository).findById(1L);
+        verify(contrachequeRepository).findById(1L);
     }
 }
