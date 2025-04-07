@@ -25,7 +25,7 @@ public class Tasks implements Serializable {
     private boolean completed;
         
 
-    public Tasks() {
+    public Tasks(long l, String string, String string2, boolean b) {
         
     }
 

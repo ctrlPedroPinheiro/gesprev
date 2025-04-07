@@ -1,7 +1,7 @@
 package br.edu.iff.ccc.bsi.gesprev.service;
 
-import br.edu.iff.ccc.bsi.gesprev.entities.Aposentadoria;
-import br.edu.iff.ccc.bsi.gesprev.repository.AposentadoriaRepository;
+import br.edu.iff.ccc.bsi.gesprev.entities.Endereco;
+import br.edu.iff.ccc.bsi.gesprev.repository.EnderecoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,13 +17,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class AposentadoriaServiceTest {
+public class EnderecoServiceTest {
 
     @InjectMocks
-    private AposentadoriaService aposentadoriaService;
+    private EnderecoService enderecoService;
 
     @Mock
-    private AposentadoriaRepository aposentadoriaRepository;
+    private EnderecoRepository enderecoRepository;
 
     @BeforeEach
     void setup() {
@@ -31,17 +31,17 @@ public class AposentadoriaServiceTest {
     }
 
     @Test
-    @DisplayName("Busca por ID em AposentadoriaService com sucesso.")
+    @DisplayName("Busca por ID em EnderecoService com sucesso.")
     void testBuscarPorId() {
-        Aposentadoria aposentadoriaMock = new Aposentadoria();
-        aposentadoriaMock.setId(1L);
+        Endereco enderecoMock = new Endereco();
+        enderecoMock.setId(1L);
 
-        when(aposentadoriaRepository.findById(1L)).thenReturn(Optional.of(aposentadoriaMock));
+        when(enderecoRepository.findById(1L)).thenReturn(Optional.of(enderecoMock));
 
-        Aposentadoria result = aposentadoriaService.buscarOuFalhar(1L);
+        Endereco result = enderecoService.buscarOuFalhar(1L);
 
         assertNotNull(result);
         assertEquals(1L, result.getId());
-        verify(aposentadoriaRepository).findById(1L);
+        verify(enderecoRepository).findById(1L);
     }
 }
